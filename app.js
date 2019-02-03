@@ -26,21 +26,30 @@ const divide = (numA, numB) => {
 };
 
 // Operator Function
-const operate = (operator, numA, numB) => {
-  switch (operator) {
-    case "+":
-      add(numA, numB);
-      break;
-    case "-":
-      subtract(numA, numB);
-      break;
-    case "*":
-      multiply(numA, numB);
-      break;
-    case "/":
-      divide(numA, numB);
-      break;
+const operate = array => {
+  let result = 0;
+  // Will only work if it has two numbers and one operation
+  if (array.length >= 3) {
+    const numA = array[0];
+    const numB = array[2];
+    const operator = array[1];
+
+    switch (operator) {
+      case "+":
+        result = add(numA, numB);
+        break;
+      case "-":
+        result = subtract(numA, numB);
+        break;
+      case "*":
+        result = multiply(numA, numB);
+        break;
+      case "/":
+        result = divide(numA, numB);
+        break;
+    }
   }
+  return result;
 };
 
 // =========== DOM Manipulation Functions
@@ -79,4 +88,10 @@ btnOperation.forEach(button => {
     displayInput.push(e.target.id);
     renderDisplay();
   });
+});
+
+btnAction.addEventListener("click", e => {
+  addInputToArray();
+  const operationResult = operate(displayInput);
+  displayElement.textContent = operationResult;
 });
