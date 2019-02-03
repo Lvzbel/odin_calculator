@@ -103,3 +103,12 @@ btnClear.addEventListener("click", () => {
   displayInput = [];
   renderDisplay();
 });
+
+btnDelete.addEventListener("click", () => {
+  if (singleInput) {
+    const newStr = singleInput.substring(0, singleInput.length - 1);
+    singleInput = newStr;
+    renderDisplay();
+    displayElement.textContent += singleInput;
+  }
+});
