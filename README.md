@@ -2,8 +2,6 @@
 
 ## Web Development 101 - Final Project
 
----
-
 The final project to the Web Development 101 section is to create a web calculator.
 
 #### Source:
