@@ -1,11 +1,12 @@
 const btnInput = document.querySelectorAll(".btn-input");
 const btnOperation = document.querySelectorAll(".btn-operation");
-const btnUtil = document.querySelectorAll(".btn-util");
 const displayElement = document.querySelector(".display");
 const btnAction = document.querySelector(".btn-action");
+const btnClear = document.querySelector("#clear");
+const btnDelete = document.querySelector("#delete");
 
 // Display Input Array
-const displayInput = [];
+let displayInput = [];
 let singleInput = "";
 
 // Caculator Basic Operations
@@ -78,6 +79,7 @@ btnInput.forEach(button => {
   });
 });
 
+// Operation buttons
 btnOperation.forEach(button => {
   button.addEventListener("click", e => {
     if ((singleInput === "") | (singleInput === ".")) {
@@ -90,8 +92,14 @@ btnOperation.forEach(button => {
   });
 });
 
+// Enter button or "="
 btnAction.addEventListener("click", e => {
   addInputToArray();
   const operationResult = operate(displayInput);
   displayElement.textContent = operationResult;
+});
+
+btnClear.addEventListener("click", () => {
+  displayInput = [];
+  renderDisplay();
 });
