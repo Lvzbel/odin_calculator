@@ -1,3 +1,9 @@
+const btnInput = document.querySelectorAll(".btn-input");
+const displayElement = document.querySelector(".display");
+
+// Display Input Array
+const displayInput = [];
+
 // Caculator Basic Operations
 const add = (numA, numB) => {
   return numA + numB;
@@ -32,3 +38,12 @@ const operate = (operator, numA, numB) => {
       break;
   }
 };
+
+// DOM Manipulation Functions
+const renderDisplay = array => {
+  let display = "";
+  array.forEach(char => (display += `${char} `));
+  displayElement.textContent = display;
+};
+
+// DOM Events
