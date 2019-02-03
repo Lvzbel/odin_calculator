@@ -1,8 +1,12 @@
 const btnInput = document.querySelectorAll(".btn-input");
+const btnOperation = document.querySelectorAll(".btn-operation");
+const btnUtil = document.querySelectorAll(".btn-util");
 const displayElement = document.querySelector(".display");
+const btnAction = document.querySelector(".btn-action");
 
 // Display Input Array
 const displayInput = [];
+let singleInput = "";
 
 // Caculator Basic Operations
 const add = (numA, numB) => {
@@ -39,11 +43,40 @@ const operate = (operator, numA, numB) => {
   }
 };
 
-// DOM Manipulation Functions
-const renderDisplay = array => {
+// =========== DOM Manipulation Functions
+
+// Render Display
+const renderDisplay = () => {
   let display = "";
-  array.forEach(char => (display += `${char} `));
+  displayInput.forEach(char => (display += `${char} `));
   displayElement.textContent = display;
 };
 
-// DOM Events
+// Add single input to display array and re-render array
+const addInputToArray = () => {
+  displayInput.push(parseFloat(singleInput));
+  singleInput = "";
+  renderDisplay();
+};
+
+// ============== DOM Events
+
+// Single digit input
+btnInput.forEach(button => {
+  button.addEventListener("click", e => {
+    singleInput += e.target.id;
+    displayElement.textContent += e.target.id;
+  });
+});
+
+btnOperation.forEach(button => {
+  button.addEventListener("click", e => {
+    if ((singleInput === "") | (singleInput === ".")) {
+      singleInput = "";
+      return;
+    }
+    addInputToArray();
+    displayInput.push(e.target.id);
+    renderDisplay();
+  });
+});
