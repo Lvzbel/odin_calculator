@@ -99,11 +99,13 @@ btnAction.addEventListener("click", e => {
   displayElement.textContent = operationResult;
 });
 
+// Clear every number and action
 btnClear.addEventListener("click", () => {
   displayInput = [];
   renderDisplay();
 });
 
+// Deletes a single character
 btnDelete.addEventListener("click", () => {
   if (singleInput) {
     const newStr = singleInput.substring(0, singleInput.length - 1);
