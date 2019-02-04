@@ -80,6 +80,9 @@ const addInputToArray = () => {
 // Single digit input
 btnInput.forEach(button => {
   button.addEventListener("click", e => {
+    if (displayInput.length === 0 && singleInput.length === 0) {
+      renderDisplay();
+    }
     singleInput += e.target.id;
     displayElement.textContent += e.target.id;
   });
@@ -103,6 +106,7 @@ btnAction.addEventListener("click", e => {
   addInputToArray();
   const operationResult = operate(displayInput);
   displayElement.textContent = operationResult;
+  displayInput = [];
 });
 
 // Clear every number and action
