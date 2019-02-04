@@ -27,13 +27,13 @@ const divide = (numA, numB) => {
 };
 
 // Operator Function
-const operate = array => {
-  let result = 0;
+const operate = () => {
   // Will only work if it has two numbers and one operation
-  if (array.length >= 3) {
-    const numA = array[0];
-    const numB = array[2];
-    const operator = array[1];
+  if (displayInput.length >= 3) {
+    let result = 0;
+    const numA = displayInput[0];
+    const numB = displayInput[2];
+    const operator = displayInput[1];
 
     switch (operator) {
       case "+":
@@ -49,8 +49,12 @@ const operate = array => {
         result = divide(numA, numB);
         break;
     }
+    displayInput.splice(0, 3, result);
   }
-  return result;
+  if (displayInput.length >= 3) {
+    operate();
+  }
+  return displayInput[0];
 };
 
 // =========== DOM Manipulation Functions
