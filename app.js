@@ -70,9 +70,11 @@ const renderDisplay = () => {
 
 // Add single input to display array and re-render array
 const addInputToArray = () => {
-  displayInput.push(parseFloat(singleInput));
-  singleInput = "";
-  renderDisplay();
+  if (singleInput) {
+    displayInput.push(parseFloat(singleInput));
+    singleInput = "";
+    renderDisplay();
+  }
 };
 
 // ============== DOM Events
@@ -104,9 +106,11 @@ btnOperation.forEach(button => {
 // Enter button or "="
 btnAction.addEventListener("click", e => {
   addInputToArray();
-  const operationResult = operate(displayInput);
-  displayElement.textContent = operationResult;
-  displayInput = [];
+  if (displayInput.length >= 3) {
+    const operationResult = operate(displayInput);
+    displayElement.textContent = operationResult;
+    displayInput = [];
+  }
 });
 
 // Clear every number and action
