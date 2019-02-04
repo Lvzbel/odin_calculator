@@ -25,7 +25,6 @@ const multiply = (numA, numB) => {
 
 const divide = (numA, numB) => {
   // Cannot divide by 0
-  debugger;
   if (numA === 0 || numB === 0) {
     displayInput = ["You cannot devide by Zero"];
     renderDisplay();
@@ -73,7 +72,7 @@ const operate = () => {
 // Render Display
 const renderDisplay = () => {
   let display = "";
-  displayInput.forEach(char => (display += `${char} `));
+  displayInput.forEach(char => (display += `${char}`));
   displayElement.textContent = display;
 };
 
@@ -117,7 +116,8 @@ btnAction.addEventListener("click", e => {
   addInputToArray();
   if (displayInput.length >= 3) {
     const operationResult = operate(displayInput);
-    displayElement.textContent = operationResult;
+    displayElement.textContent =
+      Math.round(operationResult * 10000000) / 10000000;
     displayInput = [];
   }
 });
