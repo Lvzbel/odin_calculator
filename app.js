@@ -4,6 +4,7 @@ const displayElement = document.querySelector(".display");
 const btnAction = document.querySelector(".btn-action");
 const btnClear = document.querySelector("#clear");
 const btnDelete = document.querySelector("#delete");
+const btnDecimal = document.querySelector(".btn-decimal");
 
 // Display Input Array
 let displayInput = [];
@@ -134,5 +135,14 @@ btnDelete.addEventListener("click", () => {
     singleInput = newStr;
     renderDisplay();
     displayElement.textContent += singleInput;
+  }
+});
+
+btnDecimal.addEventListener("click", e => {
+  if (singleInput.includes(e.target.id)) {
+    return;
+  } else {
+    singleInput += e.target.id;
+    displayElement.textContent += e.target.id;
   }
 });
