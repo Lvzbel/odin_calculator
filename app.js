@@ -23,7 +23,15 @@ const multiply = (numA, numB) => {
 };
 
 const divide = (numA, numB) => {
-  return numA / numB;
+  // Cannot divide by 0
+  debugger;
+  if (numA === 0 || numB === 0) {
+    displayInput = ["You cannot devide by Zero"];
+    renderDisplay();
+    displayInput = [];
+  } else {
+    return numA / numB;
+  }
 };
 
 // Operator Function
