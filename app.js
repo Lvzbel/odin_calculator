@@ -49,8 +49,10 @@ const operate = () => {
         result = divide(numA, numB);
         break;
     }
+    // remove the last operation and inserts the new result at the start of the new array
     displayInput.splice(0, 3, result);
   }
+  // if the array still has more operations it will trigger the function again
   if (displayInput.length >= 3) {
     operate();
   }
