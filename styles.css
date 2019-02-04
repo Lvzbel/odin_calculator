@@ -1,4 +1,17 @@
 /* Basic Reset */
+:root {
+  --color-primary: #2ec4b6;
+  --color-secondary: #fcbf49;
+  --color-alert: #f77f00;
+  --color-danger: #d62828;
+  --color-offwhite: #eae2b7;
+  --color-white: #fdfffc;
+  --color-black: #011627;
+  --color-alt-dark: #003049;
+  --color-brown: #663300;
+  --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.2);
+  --shadow-light: 0 2rem 3rem rgba(0, 0, 0, 0.1);
+}
 *,
 *::after,
 *::before {
@@ -13,8 +26,131 @@ html {
 
 body {
   box-sizing: border-box;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Inconsolata", sans-serif;
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 1.6rem;
+  background-color: var(--color-offwhite);
+  padding: 4rem;
+}
+
+.container {
+  max-width: 120rem;
+  margin: 6rem auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* Typography */
+h1 {
+  font-family: silkscreennormal;
+  font-size: 8rem;
+  padding-bottom: 5rem;
+  color: var(--color-brown);
+  text-align: center;
+}
+
+h3 {
+  font-family: silkscreennormal;
+  font-size: 2.5rem;
+  text-align: center;
+  color: var(--color-brown);
+}
+
+/* CALCULATOR */
+.calculator {
+  height: 65rem;
+  width: 50rem;
+  border: 1px solid var(--color-brown);
+  border-radius: 3px;
+  box-shadow: var(--shadow-dark);
+}
+
+.cal_header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 20rem;
+}
+
+.display {
+  width: 80%;
+  height: 8rem;
+  border: 1px solid var(--color-brown);
+  border-radius: 4px;
+  margin: 4rem auto 1rem auto;
+  color: var(--color-brown);
+  text-align: center;
+  font-size: 3.5rem;
+  font-family: silkscreennormal;
+  padding-top: 3rem;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-light);
+}
+
+.cal_header > button {
+  width: 35%;
+}
+
+.cal_body {
+  display: flex;
+  width: 100%;
+  height: 45rem;
+}
+
+.numberpad {
+  width: 75%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.numberpad > .btn {
+  background-color: var(--color-primary);
+  width: 8rem;
+  height: 8rem;
+  margin: 1.5rem;
+}
+
+.operation > .btn {
+  background-color: var(--color-secondary);
+  width: 8rem;
+  height: 8rem;
+  margin: 1.5rem;
+}
+
+.operation {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+/* Basic button style */
+.btn {
+  border-radius: 3px;
+  font-size: 2.5rem;
+  padding: 1rem 3rem;
+  cursor: pointer;
+  border: 1px solid var(--color-brown);
+  background-color: var(--color-alert);
+  color: var(--color-brown);
+  box-shadow: var(--shadow-light);
+}
+
+#clear,
+#delete {
+  padding: 0.5rem 3rem;
+  font-size: 3rem;
+  line-height: 0;
+}
+
+#delete {
+  background-color: var(--color-danger);
+}
+
+/* Footer */
+footer > p {
+  text-align: center;
 }
